@@ -1,7 +1,10 @@
 # Django settings for realtor project.
+import os, sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 ADMINS = (
     ('Dejan Noveski', 'dr.mote@gmail.com'),
@@ -9,9 +12,11 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+POSTGIS_VERSION = (1, 5, 2)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'realtor',                      # Or path to database file if using sqlite3.
         'USER': 'developer',                      # Not used with sqlite3.
         'PASSWORD': 'developer',                  # Not used with sqlite3.
@@ -103,6 +108,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'realtor.urls'
 
 TEMPLATE_DIRS = (
+    ROOT_DIR + "/templates"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -118,6 +124,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     'django.contrib.gis',
+    'realestate'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
