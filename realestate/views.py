@@ -4,18 +4,19 @@ from models import Region, RealEstate
 from django.shortcuts import get_object_or_404
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from shapes.views.export import ShpResponder
 
 
 def region_map(request, region_slug):
     
     region = get_object_or_404(Region, slug = region_slug)
-    realestates = RealEstate.objects.filter(poly__contained = region.area)
+    realestates = RealEstate.objects.filter(poly__contained = region.poly)
     
     
     app_info = region._meta.app_label, region._meta.module_name
     map = Map([
             InfoLayer([
-                    (region.area, '<h2>%s</h2><br/><a href="%s">%s</a><br/><br/>%s' % (
+                    (region.poly, '<h2>%s</h2><br/><a href="%s">%s</a><br/><br/>%s' % (
                         _("Region %s") % region.name, 
                         reverse("admin:%s_%s_change" % app_info, args = (region.id,)),
                         _("Go to %s administration page") % region.name,
@@ -50,3 +51,11 @@ def region_map(request, region_slug):
     
     return direct_to_template(request, "admin/realestate/region_map.html",
                               extra_context = {"map": map, "region": region,})
+
+
+def export_shapefile(modeladmin, request, queryset):
+    return ShpResponder(queryset, geo_field = "poly")()
+    
+def export_shapefile_regions(modeladmin, request, queryset):
+    qs = RealEstate.objects.filter(region__in = queryset)
+    return ShpResponder(qs, geo_field = "poly")()

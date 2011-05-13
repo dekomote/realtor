@@ -6,7 +6,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
-from views import region_map
+from views import region_map, export_shapefile, export_shapefile_regions
 
 pnt = Point(22, 41.6, srid=4326)
 pnt.transform(900913)
@@ -19,7 +19,7 @@ class RegionAdmin(OSMGeoAdmin):
     ordering = ('ascii_name',  )
     search_fields = ('name', 'ascii_name',)
     list_editable = ('population',)
-    list_display = ('name', 'ascii_name', 'slug', 'population',
+    list_display = ('name', 'population',
                     'region_map_link', 'add_realestate_link')
     list_display_links = ('name', )
     
@@ -48,17 +48,21 @@ class RegionAdmin(OSMGeoAdmin):
 
     add_realestate_link.allow_tags = True
     
+    export_shapefile.short_description = _("Export a zipped ESRI files (Region Data)")    
+    export_shapefile_regions.short_description = _("Export a zipped ESRI files (Realestate Data)")
+    actions = [export_shapefile, export_shapefile_regions]
+    
     
 class RealEstateAdmin(OSMGeoAdmin):
     list_display = ('id', 'region', 'type', 'area', 'price',
                     'estimated_price', 'owner')
-    list_editable = ('type', 'area', 'price')
-    
-    list_filter = ('type', 'owner')
-    
+    list_editable = ('type', 'area', 'price')    
+    list_filter = ('type', 'region', 'owner')    
     search_fields = ('id', 'region', 'type', 'area', 'price', 'estimated_price',
-                    'owner',  'address', 'notes')
+                    'owner',  'address', 'notes')    
     exclude = ('region',)
+    
+        
         
     map_width = 800
     map_height = 600
@@ -72,7 +76,11 @@ class RealEstateAdmin(OSMGeoAdmin):
         self.default_zoom = 14
         return super(RealEstateAdmin, self).add_view(request,
                                                  form_url = form_url,
-                                                 extra_context = extra_context)
+                                                 extra_context = extra_context)    
+    
+    export_shapefile.short_description = _("Export a zipped ESRI file")
+    
+    actions = [export_shapefile,]
 
 class RealEstateOwnerAdmin(OSMGeoAdmin):    
     list_display = ('first_name', 'last_name', 'person_id', 'phone', 'email')

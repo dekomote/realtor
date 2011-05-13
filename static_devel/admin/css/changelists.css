@@ -88,7 +88,7 @@
 
 #changelist #toolbar form input {
     font-size: 11px;
-    padding: 1px 2px;
+    padding: 2px 5px;
 }
 
 #changelist #toolbar form #searchbar {
@@ -271,7 +271,7 @@
 #changelist .actions select {
     border: 1px solid #aaa;
     margin-left: 0.5em;
-    padding: 1px 2px;
+    padding: 2px 5px;
 }
 
 #changelist .actions label {
@@ -285,5 +285,5 @@
 
 #changelist .actions .button {
     font-size: 11px;
-    padding: 1px 2px;
+    padding: 2px 5px;
 }

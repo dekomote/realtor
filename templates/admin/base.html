@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE|default:"en-us" }}" xml:lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 <title>{% block title %}{% endblock %}</title>
-<!--link href='http://fonts.googleapis.com/css?family=Play&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Didact+Gothic&subset=cyrillic,latin' rel='stylesheet' type='text/css'-->
 <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/base.css{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% load adminmedia %}{% admin_media_prefix %}css/formalize.css" />
 {% block extrastyle %}{% endblock %}
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% load adminmedia %}{% admin_media_prefix %}css/ie.css{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% admin_media_prefix %}css/rtl.css{% endblock %}" />{% endif %}
@@ -55,9 +54,7 @@
         {% endif %}
         {% block nav-global %}{% endblock %}
     </div>
-	<div class="main-separator">&nbsp;</div>
     <!-- END Header -->
-	<div id="wrapper">
 		{% block breadcrumbs %}<div class="breadcrumbs"><a href="/">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title }}{% endif %}</div>{% endblock %}
 		{% endif %}
 	
@@ -78,12 +75,12 @@
 			{% block sidebar %}{% endblock %}
 			<br class="clear" />
 		</div>
-		<!-- END Content -->	
-	</div>
+		<!-- END Content -->
 
     {% block footer %}<div id="footer"></div>{% endblock %}
 </div>
 <!-- END Container -->
 
+<script type="text/javascript" src="{% load adminmedia %}{% admin_media_prefix %}js/vendors/jquery.formalize.min.js"></script>
 </body>
 </html>

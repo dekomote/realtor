@@ -16,7 +16,7 @@ class Region(models.Model):
     ascii_name = models.CharField(max_length = 150)
     slug = models.SlugField(max_length = 50, unique = True, db_index = True)
     map_center = models.PointField()
-    area =  models.PolygonField()
+    poly =  models.PolygonField()
     population = models.PositiveIntegerField(default = 0)
     
     objects = models.GeoManager()
@@ -47,7 +47,7 @@ class Region(models.Model):
 class RealEstateOwner(models.Model):
     
     first_name = models.CharField(_("first name"), max_length = 255)
-    last_name = models.CharField(_("last_name"), max_length = 255)
+    last_name = models.CharField(_("last name"), max_length = 255)
     email = models.EmailField(_("email"), blank = True)
     phone = models.CharField(_("phone number"), max_length = 50)
     person_id = models.CharField(_("identification number"), max_length = 50)
@@ -85,7 +85,7 @@ class RealEstate(models.Model):
     
     def clean(self):
         
-        region = Region.objects.filter(area__bbcontains = self.poly)
+        region = Region.objects.filter(poly__bbcontains = self.poly)
         if not region:
             raise ValidationError(
                 "The realestate is placed in an undefined region")

@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-13 21:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: realestate/admin.py:41
+msgid "Open Region Map"
+msgstr "Отвори Регионална Мапа"
+
+#: realestate/models.py:7
+msgid "House"
+msgstr "Куќа"
+
+#: realestate/models.py:8
+msgid "Building"
+msgstr "Зграда"
+
+#: realestate/models.py:9
+msgid "Land"
+msgstr "Земјиште"
+
+#: realestate/models.py:10
+msgid "Other"
+msgstr "Друго"
+
+#: realestate/models.py:25 realestate/views.py:25
+#: templates/admin/realestate/region_map.html:18
+msgid "Region"
+msgstr "Регион"
+
+#: realestate/models.py:26
+msgid "Regions"
+msgstr "Региони"
+
+#: realestate/models.py:43
+msgid "Add a Real Estate"
+msgstr "Додај Недвижност"
+
+#: realestate/models.py:49
+msgid "first name"
+msgstr "име"
+
+#: realestate/models.py:50
+#, fuzzy
+msgid "last name"
+msgstr "презиме"
+
+#: realestate/models.py:51
+msgid "email"
+msgstr "Е-пошта"
+
+#: realestate/models.py:52
+msgid "phone number"
+msgstr "телефонски број"
+
+#: realestate/models.py:53
+msgid "identification number"
+msgstr "број на лична карта"
+
+#: realestate/models.py:56
+msgid "real estate owner"
+msgstr "сопственик на недвижност"
+
+#: realestate/models.py:57
+msgid "real estate owners"
+msgstr "сопственици на недвижност"
+
+#: realestate/models.py:69
+msgid "type"
+msgstr "тип"
+
+#: realestate/models.py:71
+msgid "price"
+msgstr "цена"
+
+#: realestate/models.py:72
+msgid "price per square meter"
+msgstr "цена по метар квадратен"
+
+#: realestate/models.py:73
+msgid "area"
+msgstr "површина"
+
+#: realestate/models.py:74
+msgid "area in sqare meters"
+msgstr "површина во метри квадратни"
+
+#: realestate/models.py:75
+msgid "address"
+msgstr "адреса"
+
+#: realestate/models.py:77
+msgid "notes"
+msgstr "забелешки"
+
+#: realestate/models.py:82
+msgid "polygon"
+msgstr "полигон"
+
+#: realestate/models.py:96
+msgid "real estate"
+msgstr "недвижност"
+
+#: realestate/models.py:97
+msgid "real estates"
+msgstr "недвижности"
+
+#: realestate/views.py:19
+#, python-format
+msgid "Region %s"
+msgstr "Регион %s"
+
+#: realestate/views.py:21
+#, python-format
+msgid "Go to %s administration page"
+msgstr "Оди до администрациската страница за %s"
+
+#: realestate/views.py:29
+#, python-format
+msgid "ID: %s"
+msgstr "ID: %s"
+
+#: realestate/views.py:30
+#, python-format
+msgid "Type: %s"
+msgstr "Тип: %s"
+
+#: realestate/views.py:34
+msgid "Go to this realestate administration page"
+msgstr "Оди до страницата за администрирање на недвижноста"
+
+#: realestate/views.py:38
+msgid "Real Estates"
+msgstr "Недвижности"
+
+#: templates/admin/base.html:32
+msgid "Welcome,"
+msgstr ""
+
+#: templates/admin/base.html:37
+msgid "Documentation"
+msgstr ""
+
+#: templates/admin/base.html:45
+msgid "Change password"
+msgstr ""
+
+#: templates/admin/base.html:52
+msgid "Log out"
+msgstr ""
+
+#: templates/admin/base.html:59 templates/admin/realestate/region_map.html:16
+msgid "Home"
+msgstr ""
+
+#: templates/admin/base_site.html:4 templates/admin/base_site.html.py:7
+msgid "Realtor"
+msgstr ""
+
+#: templates/admin/realestate/region_map.html:17
+msgid "Realestate"
+msgstr "Недвижност"
+
+#: templates/admin/realestate/region_map.html:19
+msgid "Region Map"
+msgstr "Регионална Мапа"
+
+#: templates/admin/realestate/region_map.html:25
+#, python-format
+msgid "Region Map for %(rn)s"
+msgstr "Регионална Мапа за %(rn)s"
+
+#~ msgid "My Actions"
+#~ msgstr "Мои Акции"
+
+#~ msgid "None available"
+#~ msgstr "Нема"
+
+#~ msgid "Unknown content"
+#~ msgstr "Непозната содржина"

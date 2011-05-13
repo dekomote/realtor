@@ -3,17 +3,17 @@
 */
 
 html{
-    background: #e6e6e6;
+    background: transparent url(../img/cork.gif) repeat top left;
 }
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 35px 0;    
     font-size: 14px;
     font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     font-family: 'Ubuntu', arial, serif;
     color: #000;
-    background: #e6e6e6;
+    background: transparent url(../img/cork.gif) repeat top left;
 }
 
 /* LINKS */
@@ -439,7 +439,7 @@ input[type=text], input[type=password], textarea, select, .vTextField {
     font-size: 16px;
     text-align: left;
     font-weight: bold;
-    background: transparent url(../img/header.png) bottom left repeat-x;
+    background: transparent url(../img/gray_sand.gif) bottom left repeat-x;
     color: white;
 }
 
@@ -658,20 +658,27 @@ table#change-history tbody th {
 
 #container {
     position: relative;
-    width: 100%;
+    width: 96%;
     min-width: 760px;
-    padding: 0;    
+    padding: 1%;
+    margin:20px auto;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25); 
 }
 
 #content {
-    margin: 10px auto;
-    width: 960px;
+    margin: 10px 0px;
 }
 
 #header {
     width: 100%;
     position:fixed;
     z-index:5000;
+    height:41px;
+    top: 0px;
+    left: 0px;
 }
 
 .login #header{
@@ -682,27 +689,9 @@ table#change-history tbody th {
     padding:0px;
 }
 
-#wrapper{
-    width:960px;
-    padding: 10px;
-    margin:0px auto;
-    background: #fff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-}
-
-.login #wrapper{
-    padding:0px;
-    width:auto;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
 #content-main {
     float: left;
-    width: 100%;
+    width:100%;
 }
 
 #content-related {
@@ -749,15 +738,18 @@ table#change-history tbody th {
 }
 
 .dashboard #content {
-    width: 960px;
+    width: 500px;
 }
 
 /* HEADER */
 
 #header {
-    background: transparent url(../img/header.png) repeat-x bottom left;
+    background: transparent url(../img/gray_sand.gif) repeat-x bottom left;
     color: #ffc;
     overflow: hidden;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.45);
+    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.45); 
 }
 
 #header a:link, #header a:visited {
@@ -770,7 +762,7 @@ table#change-history tbody th {
 
 #branding h1 {
     padding: 0 10px;
-    font-size: 24px;
+    font-size: 22px;
     margin: 8px 0;
     font-weight: bold;
     color: #fff;
@@ -806,7 +798,7 @@ table#change-history tbody th {
 }
 
 #content-related .module h2 {
-    background: transparent url(../img/header.png) bottom left repeat-x;
+    background: transparent url(../img/gray_sand.gif) bottom left repeat-x;
     color: #666;
 }
 
