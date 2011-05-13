@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 from django.core.exceptions import ValidationError
+from django.core.urlresolvers import reverse
 
 REALESTATE_TYPE_CHOICES = (
     ("H", _("House"),),
@@ -30,6 +31,17 @@ class Region(models.Model):
 
     def __str__(self):
         return unicode(self).encode('utf-8')
+    
+    @property
+    def add_realestate_link(self):        
+        info = RealEstate._meta.app_label, RealEstate._meta.module_name
+        pnt = self.map_center
+        pnt.transform(900913)
+        return '<a href="%s?%s">%s</a>' % (
+            reverse('admin:%s_%s_add' % info,),
+            "lon=%s&amp;lat=%s" % pnt.coords,
+            _("Add a Real Estate")
+            )
 
 
 class RealEstateOwner(models.Model):
