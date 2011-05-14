@@ -97,7 +97,7 @@ class RealEstate(models.Model):
         verbose_name_plural = _('real estates')        
 
     def __unicode__(self):
-        return "%s%s %s" % (self.type, self.id, self.region.name,)
+        return "%s%s - %s" % (self.type, self.id, self.region.name,)
 
     def __str__(self):
         return unicode(self).encode('utf-8')

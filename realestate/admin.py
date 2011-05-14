@@ -16,7 +16,6 @@ class RegionAdmin(OSMGeoAdmin):
     max_resolution = 21664300.0339
     default_zoom = 7
     default_lon, default_lat = pnt.coords
-    ordering = ('ascii_name',  )
     search_fields = ('name', 'ascii_name',)
     list_editable = ('population',)
     list_display = ('name', 'population',
@@ -54,7 +53,7 @@ class RegionAdmin(OSMGeoAdmin):
     
     
 class RealEstateAdmin(OSMGeoAdmin):
-    list_display = ('id', 'region', 'type', 'area', 'price',
+    list_display = ('__unicode__', 'region', 'type', 'area', 'price',
                     'estimated_price', 'owner')
     list_editable = ('type', 'area', 'price')    
     list_filter = ('type', 'region', 'owner')    

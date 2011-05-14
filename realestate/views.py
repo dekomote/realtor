@@ -28,7 +28,7 @@ def region_map(request, region_slug):
             InfoLayer([
                     (realestate.poly, '<h2>%s: %s</h2><br/><a href="%s">%s</a>' % (
                         _("ID: %s") % realestate.id,
-                        _("Type: %s") % realestate.type,
+                        _("Type: %s") % realestate.get_type_display(),
                         reverse("admin:%s_%s_change" % (
                             realestate._meta.app_label,
                             realestate._meta.module_name,), args = (region.id,)),

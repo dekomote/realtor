@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 21:06+0200\n"
+"POT-Creation-Date: 2011-05-13 23:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,18 @@ msgstr ""
 #: realestate/admin.py:41
 msgid "Open Region Map"
 msgstr "Отвори Регионална Мапа"
+
+#: realestate/admin.py:51
+msgid "Export a zipped ESRI files (Region Data)"
+msgstr "Симни зипувана ESRI датотека (Податоци за регионите)"
+
+#: realestate/admin.py:52
+msgid "Export a zipped ESRI files (Realestate Data)"
+msgstr "Симни зипувана ESRI датотека (Податоци за недвижности)"
+
+#: realestate/admin.py:81
+msgid "Export a zipped ESRI file"
+msgstr "Симни зипуванa ESRI датотека"
 
 #: realestate/models.py:7
 msgid "House"
@@ -37,7 +49,7 @@ msgstr "Земјиште"
 msgid "Other"
 msgstr "Друго"
 
-#: realestate/models.py:25 realestate/views.py:25
+#: realestate/models.py:25 realestate/views.py:26
 #: templates/admin/realestate/region_map.html:18
 msgid "Region"
 msgstr "Регион"
@@ -55,7 +67,6 @@ msgid "first name"
 msgstr "име"
 
 #: realestate/models.py:50
-#, fuzzy
 msgid "last name"
 msgstr "презиме"
 
@@ -119,57 +130,95 @@ msgstr "недвижност"
 msgid "real estates"
 msgstr "недвижности"
 
-#: realestate/views.py:19
+#: realestate/views.py:20
 #, python-format
 msgid "Region %s"
 msgstr "Регион %s"
 
-#: realestate/views.py:21
+#: realestate/views.py:22
 #, python-format
 msgid "Go to %s administration page"
 msgstr "Оди до администрациската страница за %s"
 
-#: realestate/views.py:29
+#: realestate/views.py:30
 #, python-format
 msgid "ID: %s"
 msgstr "ID: %s"
 
-#: realestate/views.py:30
+#: realestate/views.py:31
 #, python-format
 msgid "Type: %s"
 msgstr "Тип: %s"
 
-#: realestate/views.py:34
+#: realestate/views.py:35
 msgid "Go to this realestate administration page"
 msgstr "Оди до страницата за администрирање на недвижноста"
 
-#: realestate/views.py:38
+#: realestate/views.py:39
 msgid "Real Estates"
 msgstr "Недвижности"
 
-#: templates/admin/base.html:32
+#: templates/admin/base.html:31
 msgid "Welcome,"
 msgstr ""
 
-#: templates/admin/base.html:37
+#: templates/admin/base.html:36
 msgid "Documentation"
 msgstr ""
 
-#: templates/admin/base.html:45
+#: templates/admin/base.html:44
 msgid "Change password"
 msgstr ""
 
-#: templates/admin/base.html:52
+#: templates/admin/base.html:51
 msgid "Log out"
 msgstr ""
 
-#: templates/admin/base.html:59 templates/admin/realestate/region_map.html:16
+#: templates/admin/base.html:58 templates/admin/realestate/region_map.html:16
 msgid "Home"
-msgstr ""
+msgstr "Дома"
 
 #: templates/admin/base_site.html:4 templates/admin/base_site.html.py:7
 msgid "Realtor"
 msgstr ""
+
+#: templates/admin/index.html:18 templates/admin/realestate/index.html:18
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: templates/admin/index.html:19 templates/admin/realestate/index.html:19
+#, python-format
+msgid "%(name)s"
+msgstr "%(name)s"
+
+#: templates/admin/index.html:29 templates/admin/realestate/index.html:29
+msgid "Add"
+msgstr ""
+
+#: templates/admin/index.html:35 templates/admin/realestate/index.html:35
+msgid "Change"
+msgstr ""
+
+#: templates/admin/index.html:45 templates/admin/realestate/index.html:45
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:53 templates/admin/realestate/index.html:53
+msgid "Recent Actions"
+msgstr "Последни Акции"
+
+#: templates/admin/index.html:54 templates/admin/realestate/index.html:54
+msgid "My Actions"
+msgstr "Мои Акции"
+
+#: templates/admin/index.html:58 templates/admin/realestate/index.html:58
+msgid "None available"
+msgstr "Нема"
+
+#: templates/admin/index.html:72 templates/admin/realestate/index.html:72
+msgid "Unknown content"
+msgstr "Непозната содржина"
 
 #: templates/admin/realestate/region_map.html:17
 msgid "Realestate"
@@ -183,12 +232,3 @@ msgstr "Регионална Мапа"
 #, python-format
 msgid "Region Map for %(rn)s"
 msgstr "Регионална Мапа за %(rn)s"
-
-#~ msgid "My Actions"
-#~ msgstr "Мои Акции"
-
-#~ msgid "None available"
-#~ msgstr "Нема"
-
-#~ msgid "Unknown content"
-#~ msgstr "Непозната содржина"
