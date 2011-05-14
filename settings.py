@@ -1,5 +1,5 @@
 # Django settings for realtor project.
-import os, sys
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -20,8 +20,8 @@ DATABASES = {
         'NAME': 'realtor',                      # Or path to database file if using sqlite3.
         'USER': 'developer',                      # Not used with sqlite3.
         'PASSWORD': 'developer',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -75,7 +75,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    
+
     STATIC_DEVEL,
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.

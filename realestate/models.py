@@ -1,7 +1,8 @@
 from django.contrib.gis.db import models
-from django.utils.translation import ugettext as _
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
+
 
 REALESTATE_TYPE_CHOICES = (
     ("H", _("House"),),
@@ -16,9 +17,9 @@ class Region(models.Model):
     ascii_name = models.CharField(max_length = 150)
     slug = models.SlugField(max_length = 50, unique = True, db_index = True)
     map_center = models.PointField()
-    poly =  models.PolygonField()
+    poly = models.PolygonField()
     population = models.PositiveIntegerField(default = 0)
-    
+
     objects = models.GeoManager()
     
     class Meta:
@@ -64,8 +65,7 @@ class RealEstateOwner(models.Model):
 
 
 class RealEstate(models.Model):
-        
-    
+
     type = models.CharField(_("type"), max_length = 1,
                             choices = REALESTATE_TYPE_CHOICES)
     price = models.DecimalField(_("price"), max_digits = 8, decimal_places = 2,
@@ -81,8 +81,7 @@ class RealEstate(models.Model):
     
     poly = models.PolygonField(_("polygon"))
     objects = models.GeoManager()
-    
-    
+
     def clean(self):
         
         region = Region.objects.filter(poly__bbcontains = self.poly)
