@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from models import RealEstate, Region, RealEstateOwner
 from views import region_map, export_shapefile, export_shapefile_regions
+from views import realestates_map, regions_map
 
 
 pnt = Point(22, 41.6, srid=4326)
@@ -48,7 +49,8 @@ class RegionAdmin(OSMGeoAdmin):
 
     export_shapefile.short_description = _("Export a zipped ESRI files (Region Data)")
     export_shapefile_regions.short_description = _("Export a zipped ESRI files (Realestate Data)")
-    actions = [export_shapefile, export_shapefile_regions]
+    regions_map.short_description = _("Show a map of selected regions")
+    actions = [regions_map, export_shapefile, export_shapefile_regions,]
 
 
 class RealEstateAdmin(OSMGeoAdmin):
@@ -74,8 +76,9 @@ class RealEstateAdmin(OSMGeoAdmin):
                                                  form_url = form_url,
                                                  extra_context = extra_context)    
 
-    export_shapefile.short_description = _("Export a zipped ESRI file")    
-    actions = [export_shapefile, ]
+    export_shapefile.short_description = _("Export a zipped ESRI file")        
+    realestates_map.short_description = _("Show a map of selected realestates")
+    actions = [export_shapefile, realestates_map,]
 
 
 class RealEstateOwnerAdmin(OSMGeoAdmin):    

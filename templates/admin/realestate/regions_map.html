@@ -22,7 +22,7 @@
 
 
 {% block content %}
-<h1>{% blocktrans with rn=region.name%}Region Map for {{rn}}{% endblocktrans %}</h1>
+<h1>{% blocktrans %}Region Map for {% endblocktrans %}{%for r in regions%}{%trans r.name%}, {%endfor%}</h1>
 <div id="content-main">
     <div class="module aligned">
         <div class="form-row">
