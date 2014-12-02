@@ -4,6 +4,8 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
 
+import math
+
 REALESTATE_TYPE_CHOICES = (
     ("H", _("House"),),
     ("B", _("Building"),),
@@ -13,12 +15,12 @@ REALESTATE_TYPE_CHOICES = (
 
 
 class Region(models.Model):
-    name = models.CharField(max_length = 150)
-    ascii_name = models.CharField(max_length = 150)
-    slug = models.SlugField(max_length = 50, unique = True, db_index = True)
-    map_center = models.PointField()
-    poly = models.PolygonField()
-    population = models.PositiveIntegerField(default = 0)
+    name = models.CharField(_("name"), max_length = 150)
+    ascii_name = models.CharField(_("ASCII name"), max_length = 150)
+    slug = models.SlugField(_("slug"), max_length = 50, unique = True, db_index = True)
+    map_center = models.PointField(_("map center"))
+    poly = models.PolygonField(_("poly"))
+    population = models.PositiveIntegerField(_("population"), default = 0)
 
     objects = models.GeoManager()
     
@@ -30,18 +32,15 @@ class Region(models.Model):
     def __unicode__(self):
         return self.name
 
-    def __str__(self):
-        return unicode(self).encode('utf-8')
-    
     @property
     def add_realestate_link(self):        
         info = RealEstate._meta.app_label, RealEstate._meta.module_name
         pnt = self.map_center
         pnt.transform(900913)
         return '<a href="%s?%s">%s</a>' % (
-            reverse('admin:%s_%s_add' % info,),
+            reverse('admin:realestate_realestate_add'),
             "lon=%s&amp;lat=%s" % pnt.coords,
-            _("Add a Real Estate")
+            _("Add a Real Estate"), 
             )
 
 
@@ -60,8 +59,6 @@ class RealEstateOwner(models.Model):
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name,)
 
-    def __str__(self):
-        return unicode(self).encode('utf-8')
 
 
 class RealEstate(models.Model):
@@ -71,7 +68,7 @@ class RealEstate(models.Model):
     price = models.DecimalField(_("price"), max_digits = 8, decimal_places = 2,
                                 help_text = _("price per square meter"))
     area = models.DecimalField(_("area"), max_digits = 8, decimal_places = 2,
-                                help_text = _("area in sqare meters"))
+                                help_text = _("area in sqare meters"), null = True, blank = True)
     address = models.CharField(_("address"), max_length = 500,
                                blank = True)
     notes = models.TextField(_("notes"), blank = True)
@@ -82,25 +79,26 @@ class RealEstate(models.Model):
     poly = models.PolygonField(_("polygon"))
     objects = models.GeoManager()
 
+
     def clean(self):
-        
+
+        if not self.area and self.poly:
+            self.area = int(self.poly.area * math.pow(10, 6) * 12365.1613)
+
         region = Region.objects.filter(poly__bbcontains = self.poly)
         if not region:
             raise ValidationError(
                 "The realestate is placed in an undefined region")
         else:
-            self.region = region[0]        
-    
+            self.region = region[0]
+
     class Meta:
         verbose_name = _('real estate')
-        verbose_name_plural = _('real estates')        
+        verbose_name_plural = _('real estates')
 
     def __unicode__(self):
         return "%s%s - %s" % (self.type, self.id, self.region.name,)
 
-    def __str__(self):
-        return unicode(self).encode('utf-8')
-    
     @property
     def estimated_price(self):
         return self.area * self.price

@@ -5,7 +5,8 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from models import RealEstate, Region, RealEstateOwner
 from views import region_map, export_shapefile, export_shapefile_regions
-from views import realestates_map, regions_map
+from views import realestates_map, regions_map, poly_search
+from realestate.forms import PolySearchForm
 
 
 pnt = Point(22, 41.6, srid=4326)
@@ -57,9 +58,9 @@ class RealEstateAdmin(OSMGeoAdmin):
     list_display = ('__unicode__', 'region', 'type', 'area', 'price',
                     'estimated_price', 'owner')
     list_editable = ('type', 'area', 'price')
-    list_filter = ('type', 'region', 'owner')
+    list_filter = ('type', 'region', 'owner',)
     search_fields = ('id', 'region', 'type', 'area', 'price', 'estimated_price',
-                    'owner',  'address', 'notes')
+                    'owner',  'address', 'notes',)
     exclude = ('region',)
 
     map_width = 800
@@ -74,11 +75,16 @@ class RealEstateAdmin(OSMGeoAdmin):
         self.default_zoom = 14
         return super(RealEstateAdmin, self).add_view(request,
                                                  form_url = form_url,
-                                                 extra_context = extra_context)    
+                                                 extra_context = extra_context)
+
+    def changelist_view(self, request, extra_context={}):
+        extra_context["poly_search_form"] = PolySearchForm()
+        return super(RealEstateAdmin, self).changelist_view(request, extra_context)
+
 
     export_shapefile.short_description = _("Export a zipped ESRI file")        
     realestates_map.short_description = _("Show a map of selected realestates")
-    actions = [export_shapefile, realestates_map,]
+    actions = [export_shapefile, realestates_map, poly_search]
 
 
 class RealEstateOwnerAdmin(OSMGeoAdmin):    

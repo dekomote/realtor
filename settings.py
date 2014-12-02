@@ -12,7 +12,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-POSTGIS_VERSION = (1, 5, 2)
+POSTGIS_VERSION = (2, 1, 0)
 
 DATABASES = {
     'default': {
@@ -37,6 +37,10 @@ TIME_ZONE = 'Europe/Skopje'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'MK-mk'
+
+LOCALE_PATHS = (
+    ROOT_DIR + "/locale",
+)
 
 SITE_ID = 1
 

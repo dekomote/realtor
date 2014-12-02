@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-16 12:31+0200\n"
+"POT-Creation-Date: 2014-12-01 16:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,30 +16,31 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
 #: realestate/admin.py:40
 msgid "Open Region Map"
-msgstr "Отвори Регионална Мапа"
+msgstr "Отвори ја Регионалната Мапа"
 
 #: realestate/admin.py:50
 msgid "Export a zipped ESRI files (Region Data)"
-msgstr "Симни зипувана ESRI датотека (Податоци за регионите)"
+msgstr "Експортирај спакувана ЕСРИ датотека со регионални податоци"
 
 #: realestate/admin.py:51
 msgid "Export a zipped ESRI files (Realestate Data)"
-msgstr "Симни зипувана ESRI датотека (Податоци за недвижности)"
+msgstr "Експортирај спакувана ЕСРИ датотека со недвижнини"
 
 #: realestate/admin.py:52
 msgid "Show a map of selected regions"
-msgstr "Прикажи мапа од избраните региони"
+msgstr "Прикажи мапа од селектираните региони"
 
 #: realestate/admin.py:79
 msgid "Export a zipped ESRI file"
-msgstr "Симни зипуванa ESRI датотека"
+msgstr "Експортирај спакувана ЕСРИ датотека"
 
 #: realestate/admin.py:80
 msgid "Show a map of selected realestates"
-msgstr "Прикажи мапа од избраните недвижности"
+msgstr "Прикажи мапа од селектираните недвижнини"
 
 #: realestate/models.py:8
 msgid "House"
@@ -57,8 +58,32 @@ msgstr "Земјиште"
 msgid "Other"
 msgstr "Друго"
 
+#: realestate/models.py:16
+msgid "name"
+msgstr "име"
+
+#: realestate/models.py:17
+msgid "ASCII name"
+msgstr "ASCII име"
+
+#: realestate/models.py:18
+msgid "slug"
+msgstr "слаг"
+
+#: realestate/models.py:19
+msgid "map center"
+msgstr "центар на мапа"
+
+#: realestate/models.py:20
+msgid "poly"
+msgstr "полигон"
+
+#: realestate/models.py:21
+msgid "population"
+msgstr "популација"
+
 #: realestate/models.py:26 realestate/views.py:49
-#: templates/admin/realestate/regions_map.html:18
+#: templates/admin/realestate/regions_map.html:19
 msgid "Region"
 msgstr "Регион"
 
@@ -66,77 +91,77 @@ msgstr "Регион"
 msgid "Regions"
 msgstr "Региони"
 
-#: realestate/models.py:44
+#: realestate/models.py:41
 msgid "Add a Real Estate"
-msgstr "Додај Недвижност"
+msgstr "Додај недвижнина"
+
+#: realestate/models.py:47
+msgid "first name"
+msgstr "Име"
+
+#: realestate/models.py:48
+msgid "last name"
+msgstr "Презиме"
+
+#: realestate/models.py:49
+msgid "email"
+msgstr "email"
 
 #: realestate/models.py:50
-msgid "first name"
-msgstr "име"
+msgid "phone number"
+msgstr "Тел. Број"
 
 #: realestate/models.py:51
-msgid "last name"
-msgstr "презиме"
-
-#: realestate/models.py:52
-msgid "email"
-msgstr "Е-пошта"
-
-#: realestate/models.py:53
-msgid "phone number"
-msgstr "телефонски број"
+msgid "identification number"
+msgstr "ЛК БР"
 
 #: realestate/models.py:54
-msgid "identification number"
-msgstr "број на лична карта"
-
-#: realestate/models.py:57
 msgid "real estate owner"
-msgstr "сопственик на недвижност"
+msgstr "Сопственик на недвижнина"
 
-#: realestate/models.py:58
+#: realestate/models.py:55
 msgid "real estate owners"
-msgstr "сопственици на недвижност"
+msgstr "Сопственици на недвижнина"
 
-#: realestate/models.py:69
+#: realestate/models.py:64
 msgid "type"
 msgstr "тип"
 
-#: realestate/models.py:71
+#: realestate/models.py:66
 msgid "price"
 msgstr "цена"
 
-#: realestate/models.py:72
+#: realestate/models.py:67
 msgid "price per square meter"
-msgstr "цена по метар квадратен"
+msgstr "цена по квадратен метар"
 
-#: realestate/models.py:73
+#: realestate/models.py:68
 msgid "area"
 msgstr "површина"
 
-#: realestate/models.py:74
+#: realestate/models.py:69
 msgid "area in sqare meters"
 msgstr "површина во метри квадратни"
 
-#: realestate/models.py:75
+#: realestate/models.py:70
 msgid "address"
 msgstr "адреса"
 
-#: realestate/models.py:77
+#: realestate/models.py:72
 msgid "notes"
 msgstr "забелешки"
 
-#: realestate/models.py:82
+#: realestate/models.py:77
 msgid "polygon"
 msgstr "полигон"
 
-#: realestate/models.py:95
+#: realestate/models.py:90
 msgid "real estate"
-msgstr "недвижност"
+msgstr "недвижнина"
 
-#: realestate/models.py:96
+#: realestate/models.py:91
 msgid "real estates"
-msgstr "недвижности"
+msgstr "недвижнини"
 
 #: realestate/views.py:43
 #, python-format
@@ -146,12 +171,12 @@ msgstr "Регион %s"
 #: realestate/views.py:45
 #, python-format
 msgid "Go to %s administration page"
-msgstr "Оди до администрациската страница за %s"
+msgstr "Оди до административната страна за %s"
 
 #: realestate/views.py:53
 #, python-format
 msgid "ID: %s"
-msgstr "ID: %s"
+msgstr ""
 
 #: realestate/views.py:54
 #, python-format
@@ -160,37 +185,37 @@ msgstr "Тип: %s"
 
 #: realestate/views.py:58
 msgid "Go to this realestate administration page"
-msgstr "Оди до страницата за администрирање на недвижноста"
+msgstr "Оди до административната страница за оваа недвижнина"
 
 #: realestate/views.py:62
 msgid "Real Estates"
-msgstr "Недвижности"
+msgstr "Недвижнини"
 
-#: templates/admin/base.html:31
+#: templates/admin/base.html:28
 msgid "Welcome,"
-msgstr ""
+msgstr "Добредојде,"
+
+#: templates/admin/base.html:33
+msgid "Documentation"
+msgstr "Документација"
 
 #: templates/admin/base.html:36
-msgid "Documentation"
-msgstr ""
-
-#: templates/admin/base.html:44
 msgid "Change password"
-msgstr ""
+msgstr "Промени лозинка"
 
-#: templates/admin/base.html:51
+#: templates/admin/base.html:38
 msgid "Log out"
-msgstr ""
+msgstr "Одјава"
 
-#: templates/admin/base.html:58
+#: templates/admin/base.html:47
 #: templates/admin/realestate/realestates_map.html:16
-#: templates/admin/realestate/regions_map.html:16
+#: templates/admin/realestate/regions_map.html:17
 msgid "Home"
 msgstr "Дома"
 
 #: templates/admin/base_site.html:4 templates/admin/base_site.html.py:7
 msgid "Realtor"
-msgstr ""
+msgstr "Реалтор"
 
 #: templates/admin/index.html:19
 #, python-format
@@ -199,17 +224,17 @@ msgstr ""
 
 #: templates/admin/index.html:20
 #: templates/admin/realestate/realestates_map.html:17
-#: templates/admin/realestate/regions_map.html:17
+#: templates/admin/realestate/regions_map.html:18
 msgid "Realestate"
-msgstr "Недвижност"
+msgstr "Недвижнина"
 
 #: templates/admin/index.html:30
 msgid "Add"
-msgstr ""
+msgstr "Додај"
 
 #: templates/admin/index.html:36
 msgid "Change"
-msgstr ""
+msgstr "Промени"
 
 #: templates/admin/index.html:47
 msgid "You don't have permission to edit anything."
@@ -221,35 +246,29 @@ msgstr "Последни Акции"
 
 #: templates/admin/index.html:56
 msgid "My Actions"
-msgstr "Мои Акции"
+msgstr "Мои акции"
 
 #: templates/admin/index.html:60
 msgid "None available"
-msgstr "Нема"
+msgstr ""
 
 #: templates/admin/index.html:74
 msgid "Unknown content"
-msgstr "Непозната содржина"
+msgstr ""
 
 #: templates/admin/realestate/realestates_map.html:18
-#, fuzzy
 msgid "Realestates"
-msgstr "Недвижност"
+msgstr "Недвижнини"
 
 #: templates/admin/realestate/realestates_map.html:19
 #: templates/admin/realestate/realestates_map.html:25
-#, fuzzy
 msgid "Filtered Realestates Map"
-msgstr "недвижности"
+msgstr "Мапа со филтрирани недвижнини"
 
-#: templates/admin/realestate/regions_map.html:19
+#: templates/admin/realestate/regions_map.html:20
 msgid "Region Map"
-msgstr "Регионална Мапа"
+msgstr "Регионална мапа"
 
-#: templates/admin/realestate/regions_map.html:25
-#, fuzzy
+#: templates/admin/realestate/regions_map.html:26
 msgid "Region Map for "
-msgstr "Регионална Мапа за "
-
-#~ msgid "%(name)s"
-#~ msgstr "%(name)s"
+msgstr "Регионална мапа за "
