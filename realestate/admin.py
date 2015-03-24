@@ -10,7 +10,7 @@ from realestate.forms import PolySearchForm
 
 
 pnt = Point(22, 41.6, srid=4326)
-pnt.transform(900913)
+pnt.transform(3857)
 
 
 class RegionAdmin(OSMGeoAdmin):

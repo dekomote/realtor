@@ -36,7 +36,7 @@ class Region(models.Model):
     def add_realestate_link(self):        
         info = RealEstate._meta.app_label, RealEstate._meta.module_name
         pnt = self.map_center
-        pnt.transform(900913)
+        pnt.transform(3857)
         return '<a href="%s?%s">%s</a>' % (
             reverse('admin:realestate_realestate_add'),
             "lon=%s&amp;lat=%s" % pnt.coords,

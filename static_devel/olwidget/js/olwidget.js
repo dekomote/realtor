@@ -197,7 +197,7 @@ olwidget.Map = OpenLayers.Class(OpenLayers.Map, {
             // Constructor options
             mapOptions: {
                 units: 'm',
-                projection: "EPSG:900913",
+                projection: "EPSG:3857",
                 displayProjection: "EPSG:4326",
                 maxExtent: [-20037508.34, -20037508.34, 20037508.34, 20037508.34],
                 controls: ['LayerSwitcher', 'Navigation', 'PanZoom', 'Attribution']

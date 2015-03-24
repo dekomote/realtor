@@ -17,7 +17,7 @@ OpenLayers.Layer.CloudMade = OpenLayers.Class(OpenLayers.Layer.TMS, {
             maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
             maxResolution: 156543.0339,
             units: "m",
-            projection: "EPSG:900913",
+            projection: "EPSG:3857",
 			isBaseLayer: true,
 			numZoomLevels: 19,
 			displayOutsideMaxExtent: true,
